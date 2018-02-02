@@ -1,20 +1,14 @@
-import * as React from 'react';
-// import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
+import React from 'react';
+import { render } from 'react-dom';
+import { Button, Header, Icon, Modal, Input } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
-// import AuthorsTable from "./AuthorsTable";
-import NavMenu from './NavMenu';
-import WindowContainer from './WindowContainer';
-export interface WeatherForecast {
-  dateFormatted: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
-export default class App extends React.Component {
-  // todo identify why props here even necessary
-  constructor(props: string) {
-    super(props);
+import AuthorsTable from './AuthorsTable';
+import MenuExampleInvertedVertical from './MenuExampleInvertedVertical';
+
+class App extends React.Component {
+  constructor() {
+    super();
     this.state = {
       authors: [],
       value: '',
@@ -22,12 +16,12 @@ export default class App extends React.Component {
       modalWindowMessage: ''
     };
 
-    // this.getAuthors = this.getAuthors.bind(this);
-    /* this.handleInputChange = this.handleInputChange.bind(this);
+    //this.getAuthors = this.getAuthors.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.addRandomAuthor = this.addRandomAuthor.bind(this);
     this.deleteAuthor = this.deleteAuthor.bind(this);
     this.handleAddAuthor = this.handleAddAuthor.bind(this);
-    this.handleDeleteAuthor = this.handleDeleteAuthor.bind(this); */
+    this.handleDeleteAuthor = this.handleDeleteAuthor.bind(this);
   }
 
   componentDidMount() {
@@ -35,16 +29,7 @@ export default class App extends React.Component {
     console.log('comstate', this.state);
   }
 
-  render() {
-    return (
-      <div>
-        <NavMenu />
-        <WindowContainer />
-      </div>
-    );
-  }
-
-  /*   handleOpen = e =>
+  handleOpen = e =>
     this.setState({
       modalOpen: true
     });
@@ -52,33 +37,32 @@ export default class App extends React.Component {
   handleAddAuthor = e =>
     this.setState({
       modalOpen: true,
-      modalWindowMessage: "Author has been succesfully added"
+      modalWindowMessage: 'Author has been succesfully added'
     });
 
   handleDeleteAuthor = e =>
     this.setState({
       modalOpen: true,
-      modalWindowMessage: "Author has been succesfully deleted"
+      modalWindowMessage: 'Author has been succesfully deleted'
     });
 
   handleClose = e =>
     this.setState({
       modalOpen: false
-    }); */
+    });
 
-  // render() {
-  /* let contents = this.state.loading ? (
+  render() {
+    let contents = this.state.loading ? (
       <p>
         <em />
       </p>
     ) : (
-      //this.renderAuthorsTable()
-    ); */
+      this.renderAuthorsTable()
+    );
 
-  /* return (
+    return (
       <div>
-        <NavMenu />
-
+        <MenuExampleInvertedVertical />
         <Modal
           trigger={
             <div>
@@ -112,35 +96,28 @@ export default class App extends React.Component {
             </Button>
           </Modal.Actions>
         </Modal>
-
-        <p>
-          Author Name:{" "}
-          <input
-            type="text"
-            id="author-name-input"
-            placeholder="Author Name Placeholder"
-            //ref={input => this.setState({value: input})}
-            value={this.state.value}
-            onChange={this.handleInputChange}
-          />
-        </p>
-        { <p>
-               Status: <label>Status Placeholder</label>
-           </p> 
-        <button id="add-author" onClick={this.addRandomAuthor}>
-          ADD AUTHOR
-        </button>
-        <button id="delete-author" onClick={this.deleteAuthor}>
-          DELETE AUTHOR
-        </button>
-        <button id="get-authors-list" onClick={this.getAuthors}>
-          GET AUTHORS
-        </button>
-        <p>{contents}</p> 
-        </div>
-        */
-
-  //}
+      </div>
+      // <div>
+      //     <p>
+      //         Author Name: <input
+      //             type='text'
+      //             id="author-name-input"
+      //             placeholder='Author Name Placeholder'
+      //             //ref={input => this.setState({value: input})}
+      //             value={this.state.value}
+      //             onChange={this.handleInputChange}>
+      //         </input>
+      //     </p>
+      //     {/* <p>
+      //         Status: <label>Status Placeholder</label>
+      //     </p> */}
+      //     <button id='add-author' onClick={this.addRandomAuthor}>ADD AUTHOR</button>
+      //     <button id='delete-author' onClick={this.deleteAuthor}>DELETE AUTHOR</button>
+      //     <button id='get-authors-list' onClick={this.getAuthors}>GET AUTHORS</button>
+      //     <p>{contents}</p>
+      // </div>
+    );
+  }
   renderAuthorsTable() {
     return (
       <table className="table">
@@ -205,6 +182,6 @@ export default class App extends React.Component {
     }
   }
 }
-//export default AuthorsTable;
+export default AuthorsTable;
 
-//render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById('root'));

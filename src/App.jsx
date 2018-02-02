@@ -1,20 +1,14 @@
-import * as React from 'react';
-// import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
+import React from 'react';
+//import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
 import 'semantic-ui-css/semantic.min.css';
 
-// import AuthorsTable from "./AuthorsTable";
+//import AuthorsTable from "./AuthorsTable";
 import NavMenu from './NavMenu';
 import WindowContainer from './WindowContainer';
-export interface WeatherForecast {
-  dateFormatted: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+
 export default class App extends React.Component {
-  // todo identify why props here even necessary
-  constructor(props: string) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       authors: [],
       value: '',
@@ -22,7 +16,7 @@ export default class App extends React.Component {
       modalWindowMessage: ''
     };
 
-    // this.getAuthors = this.getAuthors.bind(this);
+    //this.getAuthors = this.getAuthors.bind(this);
     /* this.handleInputChange = this.handleInputChange.bind(this);
     this.addRandomAuthor = this.addRandomAuthor.bind(this);
     this.deleteAuthor = this.deleteAuthor.bind(this);
@@ -66,7 +60,7 @@ export default class App extends React.Component {
       modalOpen: false
     }); */
 
-  // render() {
+  //render() {
   /* let contents = this.state.loading ? (
       <p>
         <em />
